@@ -11,7 +11,7 @@
        </tr>
        <c:forEach items="${requestScope.list}" var="item">
            <tr>
-               <td>item</td>
+               <td>${item}</td>
            </tr>
        </c:forEach>
    </table>

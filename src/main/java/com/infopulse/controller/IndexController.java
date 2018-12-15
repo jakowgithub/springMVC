@@ -24,12 +24,12 @@ public class IndexController {
     public ModelAndView index() {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("index");
-        mav.addObject("action", "/clients");
+        mav.addObject("action", "./clients");
         return mav;
     }
 
     @RequestMapping(value="/clients", method = RequestMethod.POST)
-    public ModelAndView createClient(@RequestParam("name") String name){
+    public ModelAndView createClient(@RequestParam("username") String name){
         // String name= request.getParameter("name");
         this.dataService.createClient(name);
         ModelAndView mav = new ModelAndView();
