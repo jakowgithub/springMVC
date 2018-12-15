@@ -1,0 +1,73 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-cargo-plugin:2.1.1'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'war'
+}
+
+
+apply plugin: 'com.bmuschko.cargo'
+
+group 'com.infopulse'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven{
+        url "http://mvnrepository.com/artifact/"
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'org.hibernate:hibernate-gradle-plugin:5.3.6.Final'
+    compile 'org.hibernate:hibernate-core:5.3.6.Final'
+    compile 'org.hibernate:hibernate-entitymanager:5.3.6.Final'
+    compile 'org.hibernate:hibernate-hikaricp:5.3.6.Final'
+    compile 'org.hibernate:hibernate-ehcache:5.3.6.Final'
+    compile 'org.projectlombok:lombok:1.18.2'
+    compile 'org.postgresql:postgresql:42.2.5'
+    compile 'javax.xml:jaxb-api:2.1'
+    compile 'org.springframework:spring-core: 5.1.2.RELEASE'
+    compile 'org.springframework:spring-web:5.1.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '5.1.2.RELEASE'
+    compile group: 'jstl', name: 'jstl', version: '1.2'
+    compile group: 'commons-validator', name: 'commons-validator', version: '1.6'
+    compile group: 'org.springframework', name: 'spring-messaging', version: '5.1.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-websocket', version: '5.1.2.RELEASE'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.7'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.7'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.9.7'
+    compile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version: '2.9.5'
+    compile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-base', version: '2.9.7'
+    compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.1.2.RELEASE'
+    compile group: 'org.springframework.hateoas', name: 'spring-hateoas', version: '0.25.0.RELEASE'
+    compile group: 'com.jayway.jsonpath', name: 'json-path', version: '2.4.0'
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.0'
+}
+
+cargo {
+    containerId = 'tomcat7x'
+    port = 8080
+
+
+    deployable {
+        context = 'mycontext'
+    }
+
+    remote {
+        hostname = 'localhost'
+        username =  'tomcat'
+        password =  'tomcat'
+    }
+}
