@@ -25,10 +25,9 @@ public class DataService {
     }
 
     public List<String> getAll(){
-        return userRepository
-                .findAll()
-                .stream()
-                .map(entity -> entity.getName())
-                .collect(Collectors.toList());
+        return userRepository.findAll()
+                             .stream()
+                             .map(user -> user.getName())
+                             .collect(Collectors.toList());
     }
 }

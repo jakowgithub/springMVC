@@ -19,6 +19,8 @@ public class User {
     @GenericGenerator(name="increment", strategy = "increment")
     private Long id;
 
+
     @Column(name="name")
     private String name;
+
 }
