@@ -1,0 +1,9 @@
+Project 
+Created the second table  <users> where the primary key is <String idstring> 
+with line formatted <XXXX-XXXX-XXXX>  using <hibernate>. 
+
+1. Database setup file <resources.app.prpperties>.
+2. The result is a screenshot file <idString-Result.jpg>
+3. Created file CreateIdString.java and used annotation <hibernate>. 
+4. Example https://www.baeldung.com/hibernate-identifiers   pp. 3.5.
+
