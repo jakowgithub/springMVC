@@ -1,7 +1,13 @@
-Project 
 Created the second table  <users> where the primary key is <String idstring> 
 with line formatted <XXXX-XXXX-XXXX>  using <hibernate>. 
 
+Start Project 
+1. Start Tomcat (standart port 8080);
+2. Terminal: gradlew build;
+3. Terminal: gradlew cargoRedeployRemote;
+4. http://127.0.0.1:8080/mycontext
+
+Notes:
 1. Database setup file <resources.app.prpperties>.
 2. The result is a screenshot file <idString-Result.jpg>
 3. Created file CreateIdString.java and used annotation <hibernate>. 
