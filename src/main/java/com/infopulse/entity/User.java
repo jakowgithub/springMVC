@@ -20,7 +20,7 @@ public class User {
 //    private Long id;
 
     @Id
-    @GeneratedValue(generator = "idString-generator")
+    @GeneratedValue  (generator = "idString-generator")
     @GenericGenerator(name = "idString-generator",
                       strategy = "com.infopulse.entity.CreateIdString")
     private String idstring;
