@@ -7,8 +7,8 @@
 <body>
    <table>
        <tr>
-           <td> id</td>
-           <td> name</td>
+           <td> idUser</td>
+           <td> nameUser</td>
        </tr>
        <c:forEach items="${requestScope.list}" var="item">
            <tr>

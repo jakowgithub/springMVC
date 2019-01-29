@@ -1,5 +1,8 @@
 package com.infopulse.controller;
 
+import com.infopulse.entity.User;
+import com.infopulse.entity.UserDTO;
+import com.infopulse.entity.UserMapper;
 import com.infopulse.service.DataService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -45,4 +49,21 @@ public class IndexController {
         return mav;
     }
 
+    @RequestMapping(value = "/clientsDTO", method = RequestMethod.GET)
+    public ModelAndView getClientsDTO() {
+        List<User> users = this.dataService.getAllUsers();
+        List<UserDTO> usersDTO = new ArrayList<>();
+        List<String> usersDTOstring = new ArrayList<>();
+
+        for (User user: users){
+            UserDTO userDTO = (UserMapper.INSTANCE.userToUserDTO(user));
+            usersDTO.add(userDTO);
+            usersDTOstring.add(userDTO.getIdUser() + "=" + userDTO.getNameUser());
+        }
+
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("answerDTO");
+        mav.addObject("list", usersDTOstring);
+        return mav;
+    }
 }

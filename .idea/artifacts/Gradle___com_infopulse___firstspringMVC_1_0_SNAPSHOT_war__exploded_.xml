@@ -49,6 +49,7 @@
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.9.7" />
           <element id="library" level="project" name="Gradle: com.jayway.jsonpath:json-path:2.4.0" />
           <element id="library" level="project" name="Gradle: javax.servlet:javax.servlet-api:4.0.0" />
+          <element id="library" level="project" name="Gradle: org.mapstruct:mapstruct-jdk8:1.2.0.Final" />
           <element id="library" level="project" name="Gradle: org.hibernate.common:hibernate-commons-annotations:5.0.4.Final" />
           <element id="library" level="project" name="Gradle: org.jboss.logging:jboss-logging:3.3.2.Final" />
           <element id="library" level="project" name="Gradle: javax.persistence:javax.persistence-api:2.2" />

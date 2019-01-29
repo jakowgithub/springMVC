@@ -21,10 +21,11 @@ public class CreateIdString implements IdentifierGenerator {
 
         Stream ids = session.createQuery(query).stream();
 
-        Long max = ids.map(id -> id.toString().replaceAll("-", ""))
-                                              .mapToLong(str -> Long.parseLong(str.toString()))
-                                              .max()
-                                              .orElse(0L);
+        Long max = ids.map(id -> id.toString()
+                                   .replaceAll("-", ""))
+                                   .mapToLong(str -> Long.parseLong(str.toString()))
+                                   .max()
+                                   .orElse(0L);
 
         String idstring = String.valueOf(max+1);
         String string12;

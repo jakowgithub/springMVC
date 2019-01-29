@@ -11,13 +11,15 @@ import javax.persistence.*;
 @Table(name="users")
 @Setter
 @Getter
-@NoArgsConstructor
+//@NoArgsConstructor
 public class User {
 
 //    @Id
 //    @GeneratedValue(generator="increment")
 //    @GenericGenerator(name="increment", strategy = "increment")
 //    private Long id;
+
+    public User() {}
 
     @Id
     @GeneratedValue  (generator = "idString-generator")
@@ -29,4 +31,9 @@ public class User {
     @Column(name="name")
     private String name;
 
+    public String getIdstring() { return idstring; }
+    public void setIdstring(String idstring) { this.idstring = idstring; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 }

@@ -23,11 +23,16 @@ public class DataService {
         user.setName(name);
         userRepository.save(user);
     }
-
+  //  @Transactional
     public List<String> getAll(){
         return userRepository.findAll()
                              .stream()
-                             .map(user -> user.getName())
+                             .map(user -> user.getIdstring()+ "=" + user.getName())
                              .collect(Collectors.toList());
+    }
+
+    public List<User> getAllUsers(){
+        return userRepository.findAll();
+
     }
 }

@@ -2,7 +2,7 @@ buildscript {
     repositories {
         jcenter()
     }
-
+    
     dependencies {
         classpath 'com.bmuschko:gradle-cargo-plugin:2.1.1'
     }
@@ -11,6 +11,7 @@ buildscript {
 plugins {
     id 'java'
     id 'war'
+    id 'net.ltgt.apt' version '0.9'
 }
 
 
@@ -54,6 +55,9 @@ dependencies {
     compile group: 'org.springframework.hateoas', name: 'spring-hateoas', version: '0.25.0.RELEASE'
     compile group: 'com.jayway.jsonpath', name: 'json-path', version: '2.4.0'
     compile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.0'
+
+    compile 'org.mapstruct:mapstruct-jdk8:1.2.0.Final'
+    apt 'org.mapstruct:mapstruct-processor:1.2.0.Final'
 }
 
 cargo {
