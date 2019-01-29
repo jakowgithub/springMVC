@@ -5,11 +5,19 @@ Start Project
 1. Start Tomcat (standart port 8080);
 2. Terminal: gradlew build;
 3. Terminal: gradlew cargoRedeployRemote;
-4. http://127.0.0.1:8080/mycontext
+4. Start page http://127.0.0.1:8080/mycontext
+5. All users http://127.0.0.1:8080/mycontext/clients 
+6. MapStruct result - http://127.0.0.1:8080/mycontext/clientsDTO
 
 Notes:
 1. Database setup file <resources.app.prpperties>.
 2. The result is a screenshot file <idString-Result.jpg>
 3. Created file CreateIdString.java and used annotation <hibernate>. 
 4. Example https://www.baeldung.com/hibernate-identifiers   pp. 3.5.
+5.Add MapStruct: 
+ 1)add file UserDTO with other field names than file User;
+ 2)add file UserMapper uses annotation MapStruct;
+ 3)change build.gradlew;
+ 4)add file answerDTO.jsp.
+
 
