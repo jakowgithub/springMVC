@@ -56,11 +56,10 @@ public class IndexController {
         List<String> usersDTOstring = new ArrayList<>();
 
         for (User user: users){
-            UserDTO userDTO = (UserMapper.INSTANCE.userToUserDTO(user));
+            UserDTO userDTO = UserMapper.INSTANCE.userToUserDTO(user);
             usersDTO.add(userDTO);
             usersDTOstring.add(userDTO.getIdUser() + "***" + userDTO.getNameUser());
         }
-
         ModelAndView mav = new ModelAndView();
         mav.setViewName("answerDTO");
         mav.addObject("list", usersDTOstring);

@@ -15,9 +15,9 @@ Notes:
 3. Created file CreateIdString.java and used annotation <hibernate>. 
 4. Example https://www.baeldung.com/hibernate-identifiers   pp. 3.5.
 5.Add MapStruct: 
- 1)create file UserDTO with other field names than file User;
- 2)create file UserMapper uses annotation MapStruct;
- 3)change build.gradlew (
+ 1)created file UserDTO with other field names than file User;
+ 2)created file UserMapper uses annotation MapStruct;
+ 3)changed build.gradlew ;
                             plugins {
                               id 'java'
                               id 'war'
@@ -27,7 +27,6 @@ Notes:
                                 compile 'org.mapstruct:mapstruct-jdk8:1.2.0.Final'
                                 apt 'org.mapstruct:mapstruct-processor:1.2.0.Final'
                                     }
- );
- 4)create file answerDTO.jsp.
+ 4)created file answerDTO.jsp.
 
 
