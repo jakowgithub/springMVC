@@ -52,19 +52,19 @@ public class IndexController {
 
     @RequestMapping(value = "/clientsDTO", method = RequestMethod.GET)
     public ModelAndView getClientsDTO() {
+
         List<User> users = this.dataService.getAllUsers();
-        List<String> usersDTOstring = new ArrayList<>();
 
-//        List<String> usersDTOstring = users.stream()
-//                                           .map(user -> UserMapper.INSTANCE.userToUserDTO(user).getIdUser() +
-//                                                        "***" +
-//                                                        UserMapper.INSTANCE.userToUserDTO(user).getNameUser())
-//                                           .collect(Collectors.toList());
+        List<String> usersDTOstring = users.stream()
+                            .map(user -> UserMapper.INSTANCE.userToUserDTO(user).toString())
+                            .collect(Collectors.toList());
 
-        for (User user: users){
-            UserDTO userDTO = UserMapper.INSTANCE.userToUserDTO(user);
-            usersDTOstring.add(userDTO.getIdUser() + "***" + userDTO.getNameUser());
-        }
+//       List<String> usersDTOstring = new ArrayList<>();
+//
+//       for (User user: users){
+//            UserDTO userDTO = UserMapper.INSTANCE.userToUserDTO(user);
+//            usersDTOstring.add(userDTO.getIdUser() + "*DTO*" + userDTO.getNameUser());
+//        }
         ModelAndView mav = new ModelAndView();
         mav.setViewName("answerDTO");
         mav.addObject("list", usersDTOstring);

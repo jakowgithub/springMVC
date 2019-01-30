@@ -17,4 +17,9 @@ public class UserDTO {
 
     public String getNameUser() { return nameUser; }
     public void setNameUser(String nameUser) { this.nameUser = nameUser; }
+
+    @Override
+    public String toString() {
+        return this.idUser +"*dto*"+this.nameUser;
+    }
 }
