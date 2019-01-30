@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/")
@@ -52,12 +53,16 @@ public class IndexController {
     @RequestMapping(value = "/clientsDTO", method = RequestMethod.GET)
     public ModelAndView getClientsDTO() {
         List<User> users = this.dataService.getAllUsers();
-        List<UserDTO> usersDTO = new ArrayList<>();
         List<String> usersDTOstring = new ArrayList<>();
+
+//        List<String> usersDTOstring = users.stream()
+//                                           .map(user -> UserMapper.INSTANCE.userToUserDTO(user).getIdUser() +
+//                                                        "***" +
+//                                                        UserMapper.INSTANCE.userToUserDTO(user).getNameUser())
+//                                           .collect(Collectors.toList());
 
         for (User user: users){
             UserDTO userDTO = UserMapper.INSTANCE.userToUserDTO(user);
-            usersDTO.add(userDTO);
             usersDTOstring.add(userDTO.getIdUser() + "***" + userDTO.getNameUser());
         }
         ModelAndView mav = new ModelAndView();
