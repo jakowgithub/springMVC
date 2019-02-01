@@ -56,18 +56,24 @@ public class IndexController {
         List<User> users = this.dataService.getAllUsers();
 
         List<String> usersDTOstring = users.stream()
-                            .map(user -> UserMapper.INSTANCE.userToUserDTO(user).toString())
-                            .collect(Collectors.toList());
+                                           .map(user -> UserMapper.INSTANCE.userToUserDTO(user).toString())
+                                           .collect(Collectors.toList());
+        List<String> usersDTO_UserString =
+                users.stream()
+                     .map(user -> UserMapper.INSTANCE.userToUserDTO(user))
+                     .collect(Collectors.toList())
 
-//       List<String> usersDTOstring = new ArrayList<>();
-//
-//       for (User user: users){
-//            UserDTO userDTO = UserMapper.INSTANCE.userToUserDTO(user);
-//            usersDTOstring.add(userDTO.getIdUser() + "*DTO*" + userDTO.getNameUser());
-//        }
+                     .stream()
+                     .map(userDTO -> UserMapper.INSTANCE.userDTOtoUser(userDTO).toString())
+                     .collect(Collectors.toList());
+
+
         ModelAndView mav = new ModelAndView();
         mav.setViewName("answerDTO");
         mav.addObject("list", usersDTOstring);
+
+        mav.addObject("list2", usersDTO_UserString);
+
         return mav;
     }
 }
